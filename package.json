@@ -1,10 +1,10 @@
 {
 	"name": "quill-blot-formatter-es",
-	"version": "1.0.4",
+	"version": "0.0.3",
 	"description": "a module for the Quill text editor to allow blots to be reformatted. Built in formatters: resize and realign. Built in blot support: images and iframe videos.",
 	"type": "module",
-	"main": "./src/index.js",
-	"types": "./src/index.d.ts",
+	"main": "./dist/index.js",
+	"types": "./src/index.ts",
 	"homepage": "https://github.com/Fandom-OSS/quill-blot-formatter",
 	"bugs": {
 		"url": "https://github.com/Fandom-OSS/quill-blot-formatter/issues"
@@ -20,17 +20,28 @@
 		"type": "git",
 		"url": "https://github.com/Fandom-OSS/quill-blot-formatter"
 	},
-	"files": ["src"],
-	"keywords": ["quill", "blot", "image", "resize"],
+	"files": [
+		"dist",
+		"src"
+	],
+	"keywords": [
+		"quill",
+		"blot",
+		"image",
+		"resize"
+	],
 	"license": "Apache-2.0",
 	"dependencies": {
-		"deepmerge": "^2.0.0"
+		"deepmerge": "^4.3.1"
 	},
 	"peerDependencies": {
 		"quill": "^1.3.4"
 	},
-	"scripts": {},
+	"scripts": {
+		"build": "vite build"
+	},
 	"devDependencies": {
-		"typescript": "^5.3.3"
+		"typescript": "^5.3.3",
+		"vite": "^5.0.11"
 	}
 }
