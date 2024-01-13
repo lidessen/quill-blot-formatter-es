@@ -1,35 +1,35 @@
 // @flow
 
-import BlotFormatter from '../BlotFormatter';
-import Action from '../actions/Action';
-import AlignAction from '../actions/align/AlignAction';
-import ResizeAction from '../actions/ResizeAction';
-import DeleteAction from '../actions/DeleteAction';
+import BlotFormatter from "../BlotFormatter";
+import { ActionConstructor } from "../actions/Action";
+import AlignAction from "../actions/align/AlignAction";
+import ResizeAction from "../actions/ResizeAction";
+import DeleteAction from "../actions/DeleteAction";
 
 export default class BlotSpec {
-  formatter: BlotFormatter;
+	formatter: BlotFormatter;
 
-  constructor(formatter: BlotFormatter) {
-    this.formatter = formatter;
-  }
+	constructor(formatter: BlotFormatter) {
+		this.formatter = formatter;
+	}
 
-  init(): void {}
+	init(): void {}
 
-  getActions(): Class<Action>[] {
-    return [AlignAction, ResizeAction, DeleteAction];
-  }
+	getActions(): ActionConstructor[] {
+		return [AlignAction, ResizeAction, DeleteAction];
+	}
 
-  getTargetElement(): ?HTMLElement {
-    return null;
-  }
+	getTargetElement(): HTMLElement | null {
+		return null;
+	}
 
-  getOverlayElement(): ?HTMLElement {
-    return this.getTargetElement();
-  }
+	getOverlayElement(): HTMLElement | null {
+		return this.getTargetElement();
+	}
 
-  setSelection(): void {
-    this.formatter.quill.setSelection(null);
-  }
+	setSelection(): void {
+		this.formatter.quill.setSelection(null);
+	}
 
-  onHide() {}
+	onHide() {}
 }

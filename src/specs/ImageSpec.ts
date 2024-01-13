@@ -1,35 +1,35 @@
 // @flow
 
-import BlotSpec from './BlotSpec';
-import BlotFormatter from '../BlotFormatter';
+import BlotSpec from "./BlotSpec";
+import BlotFormatter from "../BlotFormatter";
 
 export default class ImageSpec extends BlotSpec {
-  img: ?HTMLElement;
+	img: HTMLElement | null;
 
-  constructor(formatter: BlotFormatter) {
-    super(formatter);
-    this.img = null;
-  }
+	constructor(formatter: BlotFormatter) {
+		super(formatter);
+		this.img = null;
+	}
 
-  init() {
-    this.formatter.quill.root.addEventListener('click', this.onClick);
-  }
+	init() {
+		this.formatter.quill.root.addEventListener("click", this.onClick);
+	}
 
-  getTargetElement(): ?HTMLElement {
-    return this.img;
-  }
+	getTargetElement(): HTMLElement | null {
+		return this.img;
+	}
 
-  onHide() {
-    this.img = null;
-  }
+	onHide() {
+		this.img = null;
+	}
 
-  onClick = (event: MouseEvent) => {
-    const el = event.target;
-    if (!(el instanceof HTMLElement) || el.tagName !== 'IMG') {
-      return;
-    }
+	onClick = (event: MouseEvent) => {
+		const el = event.target;
+		if (!(el instanceof HTMLElement) || el.tagName !== "IMG") {
+			return;
+		}
 
-    this.img = el;
-    this.formatter.show(this);
-  };
+		this.img = el;
+		this.formatter.show(this);
+	};
 }
